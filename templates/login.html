@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Registrace</title>
+{% endblock %}
+
+{% block body %}
+
+<br><br><br>
+<div class="container">
+    <div class="panel-transparent">
+        <div class="panel-body">
+            <h2>&nbsp</h2>
+            <h1>PŘIHLÁSIT SE</h1>
+            <form>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">E-mail</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@seznam.cz">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Heslo</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*****">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-dark">Přihlásit se</button>
+                <h1>&nbsp</h1>
+            </form>
+        </div> 
+    </div>   
+</div>
+
+{% endblock %}

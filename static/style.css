@@ -1,0 +1,33 @@
+body{
+    background-color:#696969;
+}
+.container-map{
+    top: 50px;
+    position:absolute;
+    border:15px  #4a5c41;
+}
+
+h1{
+    color: white;
+    text-align: center;
+
+}
+
+form{
+    margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+    color: white;
+}
+
+.panel-transparent{
+    background: none;
+}
+
+.panel-transparent .panel-body{
+    background: rgba(151, 163, 175, 0.2);
+    margin-left: 30%;
+    margin-right: 25%;
+    width: 40%;
+    border-radius: 10%;
+}

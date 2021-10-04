@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Mapa</title>
+{% endblock %}
+
+{% block body %}
+
+<br><br><br>
+<div class="container">
+    <div id="map" style="height: 720px; width: 1280px"></div>
+        <script>
+            function initMap(){
+                var options = {
+                    zoom:12,
+                    center:{lat:49.06009638419182,lng: 17.494786735638954}
+                }
+
+                var map = new google.maps.Map(document.getElementById('map'), options);
+            }
+        </script>
+    </div>
+</div>
+
+    <script asaync defer
+    src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap&v=weekly"
+    ></script>
+
+{% endblock %}

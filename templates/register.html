@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Registrace</title>
+{% endblock %}
+
+{% block body %}
+
+<br><br><br>
+<div class="container">
+    <div class="panel-transparent">
+        <div class="panel-body">
+            <h2>&nbsp</h2>
+            <h1>REGISTROVAT SE</h1>
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Jméno</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="Jméno">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Příjmení</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="Příjmení">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">E-mail</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@seznam.cz">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Heslo</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*****">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Heslo znovu</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="*****">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-dark">Registrovat</button>
+                <h1>&nbsp&nbsp&nbsp&nbsp</h1>
+            </form>
+        </div> 
+    </div>   
+</div>
+
+{% endblock %}
