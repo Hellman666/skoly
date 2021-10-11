@@ -6,22 +6,34 @@
 
 {% block body %}
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+        <div class="row justify-content-center">
+            <div class="alert alert-danger mt-2 col-8 col-sm-8 col-md-6 col-lg-5 col-xl-4" role="alert">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <br><br><br>
 <div class="container">
     <div class="panel-transparent">
         <div class="panel-body">
             <h2>&nbsp</h2>
             <h1>PŘIHLÁSIT SE</h1>
-            <form>
+            <form action="/login" class="login-form" method="POST">
                 <br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">E-mail</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@seznam.cz">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@email.cz">
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Heslo</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*****">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Heslo">
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-dark">Přihlásit se</button>

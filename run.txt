@@ -1,0 +1,2 @@
+run = app.py v cmd
+run venv = přejít do složky s aplikací v cmd -> venv\Scripts\activate
