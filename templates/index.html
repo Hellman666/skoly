@@ -1,14 +1,85 @@
 {% extends "layout.html" %}
 
 {% block head %}
-<title>Školy</title>
+    <title>Školy</title>
 {% endblock %}
 
+
 {% block body %}
+
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+        {%- for message in errors %}
+            <div class="row justify-content-center">
+                <div class="alert alert-danger mt-2 col-8 col-sm-8 col-md-6 col-lg-5 col-xl-4" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor -%}
+    {% endif %}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages(category_filter=["success"]) %}
+    {% if errors %}
+        {%- for message in errors %}
+            <div class="row justify-content-center">
+                <div class="alert alert-success mt-2 col-8 col-sm-8 col-md-6 col-lg-5 col-xl-4" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor -%}
+    {% endif %}
+    {% endwith %}
+
+    <h1 class="text-center" style="margin-top: 5vh;">Seznam škol</h1>
+
+    {% if session['name'] %}
+        <a href="{{url_for('addSchool')}}"class="btn btn-success border rounded-pill"><span id="plus">+</span> Přidat školu</a>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+            <tr class="filters">
+            <th>Škola
+                <select id="school" class="form-control">
+                <option>Všechny</option>
+                {% for row in data %}
+                    <option>{{row[0]}}</option>
+                {% endfor %}
+                </select>
+            </th>
+            <th>Město
+                <select id="city" class="form-control">
+                <option>Všechny</option>
+                {% for row in cities %}
+                    <option>{{row[1]}}</option>
+                {% endfor %}
+                </select>
+            </th>
+            <th>Obor
+                <select id="field" class="form-control">
+                <option>Všechny</option>
+                {% for row in fields %}
+                    <option>{{row[1]}}</option>
+                {% endfor %}
+                </select>
+            </th>
+            <th>Rok
+                <select id="year" class="form-control">
+                <option>Všechny</option>
+                {% for row in years %}
+                    <option>{{row[0]}}</option>
+                {% endfor %}
+                </select>
+            </th>
+            </tr>
+        </thead>
+    </table>
+    
     <div class="container table-responsive py-5"> 
         <table class="table table-dark table-bordered table-hover">
-        <thead class="thead-dark">
-            <thead>
+        <thead class="thead-dark" id="table_id">
+            <thead class="thead-dark">
                 <th scope="col">Škola</th>
                 <th scope="col">Město</th>
                 <th scope="col">Obor</th>
@@ -18,15 +89,25 @@
         
             <tbody>
             {% for row in data %}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[4] }}</td>
+            <tr class="school-list-row"
+                data-school="{{row[0]}}"
+                data-city="{{row[1]}}"
+                data-field="{{row[2]}}"
+                data-year="{{row[4]}}">
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
+    <script src="{{url_for('static',filename='filters.js')}}"></script>
 {% endblock %}

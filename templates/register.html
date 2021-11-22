@@ -21,23 +21,18 @@
 <br><br><br>
 <div class="container">
     <div class="panel-transparent">
-        <div class="panel-body">
+        <div class="login-page">
             <h2>&nbsp</h2>
             <h1>REGISTROVAT SE</h1>
-            <form action="/register" class="register-form" method="POST">
+            <form action="/register" method="POST">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Jméno</label>
                     <input type="text" name="username" class="form-control" id="formGroupExampleInput"  placeholder="Jméno">
                 </div>
-                <!--<br>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Příjmení</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput"  placeholder="Příjmení">
-                </div>-->
                 <br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">E-mail</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@email.cz">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email@email.com">
                 </div>
                 <br>
                 <div class="form-group">
@@ -51,7 +46,7 @@
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-dark">Registrovat</button>
-                <br>
+                <br><br>
                 <p class="message">Máte účet? <a href="{{url_for('login')}}">Přihlásit se</a></p>
                 <h1>&nbsp&nbsp&nbsp&nbsp</h1>
             </form>
